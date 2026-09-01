@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Console — Prime Wallet Bank USA 🇺🇸</title>
+  <title>Admin Console - Prime Wallet Bank USA</title>
   <style>
     :root{
       --pri:#0047AB; --pri-hover:#003380; --success:#059669;
@@ -44,16 +44,16 @@
 </head>
 <body>
 
-<!-- 🔐 LOGIN -->
+<!-- LOGIN -->
 <div id="loginPage">
-  <div class="header">🏦 Admin Console</div>
+  <div class="header">Admin Console - Prime Wallet Bank</div>
   <div class="card">
     <h2 style="text-align:center;margin-bottom:24px">Sign In</h2>
     <label>Email</label>
     <input type="email" id="adminEmail" placeholder="Enter admin email">
     <label>Password</label>
     <input type="password" id="adminPassword" placeholder="Enter password">
-    <button class="btn-primary" onclick="adminLogin()">🔐 Sign In</button>
+    <button class="btn-primary" onclick="adminLogin()">Sign In</button>
     <p style="text-align:center;margin-top:16px;color:#666;font-size:13px">
       Email: primewalletbankusa@gmail.com<br>
       Password: Princelv1993
@@ -61,11 +61,11 @@
   </div>
 </div>
 
-<!-- 📊 DASHBOARD -->
+<!-- DASHBOARD -->
 <div id="dashboardPage" class="hidden">
   <div class="header" style="display:flex;justify-content:space-between;align-items:center;padding:16px 24px">
-    <span>🏦 Prime Wallet Bank — Admin Console</span>
-    <button class="btn-sm" style="background:white;color:var(--pri)" onclick="logout()">🚪 Logout</button>
+    <span>Prime Wallet Bank - Admin Console</span>
+    <button class="btn-sm" style="background:white;color:var(--pri)" onclick="logout()">Logout</button>
   </div>
 
   <div class="container">
@@ -85,7 +85,7 @@
     </div>
 
     <!-- SEARCH -->
-    <input type="text" id="searchInput" placeholder="🔍 Search by name, email, account..." oninput="renderUsers()">
+    <input type="text" id="searchInput" placeholder="Search by name, email, account..." oninput="renderUsers()">
 
     <!-- USERS TABLE -->
     <table>
@@ -128,9 +128,9 @@ function adminLogin() {
     document.getElementById("loginPage").classList.add("hidden");
     document.getElementById("dashboardPage").classList.remove("hidden");
     loadData();
-    showToast("✅ Welcome, Admin!");
+    showToast("Welcome, Admin!");
   } else {
-    showToast("❌ Invalid credentials", "error");
+    showToast("Invalid credentials", "error");
   }
 }
 
@@ -166,7 +166,7 @@ function loadData() {
     if (!exists && newUser.email) {
       allUsers.unshift(newUser);
       saveData();
-      showToast("🔔 New user registered: " + newUser.full_name);
+      showToast("New user registered: " + newUser.full_name);
     }
   }
   renderUsers();
@@ -216,7 +216,7 @@ function renderUsers() {
   tbody.innerHTML = filtered.map((u,i) => {
     const idx = allUsers.indexOf(u);
     const status = u.frozen ? 'frozen' : u.approved ? 'approved' : 'pending';
-    const cardStatus = u.card_approved ? '✅' : u.atmHolder ? '⏳' : '—';
+    const cardStatus = u.card_approved ? 'Yes' : u.atmHolder ? 'Pending' : '—';
     return `
       <tr>
         <td><strong>${u.full_name||'—'}</strong><br><small>${u.email||''}</small></td>
@@ -225,9 +225,9 @@ function renderUsers() {
         <td><span class="badge ${status}">${status.charAt(0).toUpperCase()+status.slice(1)}</span></td>
         <td>${cardStatus}</td>
         <td>
-          <button class="btn-sm btn-primary" onclick="viewUser(${idx})">👁️</button>
-          ${!u.approved ? `<button class="btn-sm btn-success" onclick="approveUser(${idx})">✅</button>` : ''}
-          <button class="btn-sm btn-danger" onclick="freezeUser(${idx})">${u.frozen?'🔓':'❄️'}</button>
+          <button class="btn-sm btn-primary" onclick="viewUser(${idx})">View</button>
+          ${!u.approved ? `<button class="btn-sm btn-success" onclick="approveUser(${idx})">Approve</button>` : ''}
+          <button class="btn-sm btn-danger" onclick="freezeUser(${idx})">${u.frozen?'Unfreeze':'Freeze'}</button>
         </td>
       </tr>
     `;
@@ -238,27 +238,27 @@ function renderUsers() {
 function approveUser(idx) {
   allUsers[idx].approved = true;
   saveData(); renderUsers();
-  showToast("✅ Approved: " + allUsers[idx].full_name);
+  showToast("Approved: " + allUsers[idx].full_name);
 }
 function freezeUser(idx) {
   allUsers[idx].frozen = !allUsers[idx].frozen;
   saveData(); renderUsers();
-  showToast(allUsers[idx].frozen ? "❄️ Frozen" : "🔓 Unfrozen");
+  showToast(allUsers[idx].frozen ? "Account Frozen" : "Account Unfrozen");
 }
 function viewUser(idx) {
   const u = allUsers[idx];
-  document.getElementById("modalTitle").textContent = "👤 " + (u.full_name||'User');
+  document.getElementById("modalTitle").textContent = "User - " + (u.full_name||'User');
   document.getElementById("modalBody").innerHTML = `
     <p><strong>Email:</strong> ${u.email||'—'}</p>
     <p><strong>Phone:</strong> ${u.phone||'—'}</p>
     <p><strong>Account #:</strong> ${u.account_number||'—'}</p>
     <p><strong>Balance:</strong> $${(u.balance||0).toFixed(2)}</p>
-    <p><strong>Status:</strong> ${u.approved?'✅ Approved':'⏳ Pending'} ${u.frozen?'❄️ FROZEN':''}</p>
+    <p><strong>Status:</strong> ${u.approved?'Approved':'Pending'} ${u.frozen?' - FROZEN':''}</p>
     ${u.idFront ? `<p><strong>ID Front:</strong> <img src="${u.idFront}" style="max-width:200px;border-radius:6px"></p>` : ''}
     ${u.idBack ? `<p><strong>ID Back:</strong> <img src="${u.idBack}" style="max-width:200px;border-radius:6px"></p>` : ''}
     <div style="margin-top:20px">
-      ${!u.approved ? `<button class="btn-success" onclick="approveUser(${idx});closeModal()">✅ Approve Account</button>` : ''}
-      <button class="btn-danger" onclick="freezeUser(${idx});closeModal()">${u.frozen?'🔓 Unfreeze':'❄️ Freeze'}</button>
+      ${!u.approved ? `<button class="btn-success" onclick="approveUser(${idx});closeModal()">Approve Account</button>` : ''}
+      <button class="btn-danger" onclick="freezeUser(${idx});closeModal()">${u.frozen?'Unfreeze':'Freeze'}</button>
     </div>
   `;
   document.getElementById("userModal").classList.remove("hidden");
@@ -283,7 +283,7 @@ window.onload = function() {
         allUsers.unshift(newUser);
         saveData();
         renderUsers();
-        showToast("🔔 New user: " + newUser.full_name);
+        showToast("New user: " + newUser.full_name);
       }
     }
   }, 3000);
